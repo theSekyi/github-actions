@@ -1,0 +1,12 @@
+name: Basic
+
+on: push
+
+jobs:
+  job-one:
+    name: Introduction
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print some text
+        run: echo Hello
