@@ -10,3 +10,7 @@ jobs:
     steps:
       - name: Print some text
         run: echo Hello
+      - name: ASCII text
+        uses: mscoutermarsh/ascii-art-action@master
+        with:
+          text: 'SHIP IT'
