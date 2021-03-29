@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest # windows, mac-os
     name: Python script
     steps:
-      - actions/checkout@v2 # load our repository to the ubuntu machine on github
+      - uses: actions/checkout@v2 # load our repository to the ubuntu machine on github
       - name: Python Setup
         uses: actions/setup-python@v2
         with:
