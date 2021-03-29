@@ -1,16 +1,43 @@
-name: Basic
+# name: Basic
 
-on: push
+# on: push
+
+# jobs:
+#   job-one:
+#     name: Introduction
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Print some text
+#         run: echo Hello
+#       - name: ASCII text
+#         uses: mscoutermarsh/ascii-art-action@master
+#         with:
+#           text: 'SHIP IT'
+
+# run the script
+# run some tests
+# make entire code base pep compliant
+
+name: Python example
+
+on: push #pull requests, push(on a specific branch), cron job or something manual
 
 jobs:
-  job-one:
-    name: Introduction
-    runs-on: ubuntu-latest
-
+  build:
+    runs-on: ubuntu-latest # windows, mac-os
+    name: Python script
     steps:
-      - name: Print some text
-        run: echo Hello
-      - name: ASCII text
-        uses: mscoutermarsh/ascii-art-action@master
+      - actions/checkout@v2 # load our repository to the ubuntu machine on github
+      - name: Python Setup
+        uses: actions/setup-python@v2
         with:
-          text: 'SHIP IT'
+          python-version: 3.7
+      - name: Installation of packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas
+          pip install -U scikit-learn
+      - name: Run Script
+        run: |
+          python script.py
